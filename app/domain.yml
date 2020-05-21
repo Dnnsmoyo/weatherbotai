@@ -15,7 +15,7 @@ actions:
 - utter_goodbye
 - utter_iamabot
 
-responses:
+templates:
   utter_greet:
   - text: "Hey! How are you?"
 
