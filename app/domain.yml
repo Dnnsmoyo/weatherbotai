@@ -1,40 +1,32 @@
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
 actions:
-- utter_greet
-- utter_cheer_up
-- utter_did_that_help
-- utter_happy
+- action_weather
+- utter_ask_location
 - utter_goodbye
-- utter_iamabot
+- utter_greet
+- utter_required_slot
+
+entities:
+- location
+
+intents:
+- greet
+- goodbye
+- inform
+- searching
+- results
+- utter_default
+
+slots:
+  location:
+    type: text
 
 templates:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+  utter_ask_location:
+  - text: In what location?
   utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  - text: Talk to you later.
+  - text: Bye bye :(
+  utter_greet:
+  - text: Hello! I am weatherbot. Which country's weather do you want to know?
+  utter_required_slot:
+  - text: Okay searching weather for {location}
